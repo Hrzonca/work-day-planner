@@ -5,6 +5,7 @@ This project was created to help people plan a single wokring day. It allows the
 ![page.png](assets/page.png)
 
 Live link:
+https://hrzonca.github.io/work-day-planner/
 
 Repo link:
 https://github.com/Hrzonca/work-day-planner
