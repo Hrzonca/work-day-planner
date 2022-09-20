@@ -43,7 +43,6 @@ function createRow(hour, label) {
 const saveToDo=event=>{
     //keeps info on screen even after refresh
     event.preventDefault()
-    //
     const toDoTime = $(event.currentTarget).siblings('.hourdisplay').text();
     const toDo = $(event.currentTarget).siblings('.description').val();
     localStorage.setItem(toDoTime,JSON.stringify(toDo))
