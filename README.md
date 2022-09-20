@@ -7,6 +7,7 @@ This project was created to help people plan a single wokring day. It allows the
 Live link:
 
 Repo link:
+https://github.com/Hrzonca/work-day-planner
 
 License:
 MIT
