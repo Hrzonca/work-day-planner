@@ -32,6 +32,27 @@
     button.addClass("saveBtn col-md-1");
     button.text("Save");
 
+    //Ruxin helped with the data storage 
+//making it save on screen 
+const saveToDo=event=>{
+    //keeps info on screen even after refresh
+    event.preventDefault()
+    //
+    const toDoTime = $(event.currentTarget).siblings('.hourdisplay').text();
+    const toDo = $(event.currentTarget).siblings('.description').val();
+    localStorage.setItem(toDoTime,JSON.stringify(toDo))
+}
+$('button').on('click',saveToDo)
+
+
+const renderToDo=()=>{
+    $('.hourdisplay').each(function() {
+        let text = JSON.parse(localStorage.getItem($(this).text()));
+        $(this).siblings('.description').val(text);
+    })
+}
+renderToDo();
+
     rowDiv.append(article, textArea, button);
     $("main").append(rowDiv);  
 
