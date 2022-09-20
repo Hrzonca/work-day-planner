@@ -35,21 +35,31 @@ function createRow(hour, label) {
     button.addClass("saveBtn col-md-1");
     button.text("Save");
 
-    $("button").on("click", function (event) {
-        event.preventDefault();
-        var saveData = $(this).append("decription");
+//Ruxin helped with the data storage 
+//making it save on screen 
+    const saveToDo=event=>{
+        //keeps info on screen even after refresh
+        event.preventDefault()
+        //
+        const toDoTime = $(event.currentTarget).siblings('.hourdisplay').text();
+        const toDo = $(event.currentTarget).siblings('.description').val();
+        localStorage.setItem(toDoTime,JSON.stringify(toDo))
+    }
+    $('button').on('click',saveToDo)
 
-    })
 
-
-    //TODO: saving information 
-
+    const renderToDo=()=>{
+        $('.hourdisplay').each(function() {
+            let text = JSON.parse(localStorage.getItem($(this).text()));
+            $(this).siblings('.description').val(text);
+        })
+    }
+    renderToDo();
 
     //putting all the elments in a single time block row
     rowDiv.append(article, textArea, button);
     $("main").append(rowDiv);
 
-    //reminder that local storage goes in the function for the save button 
 }
 
 //activate function by calling the function which loops through the 10 items in the hours array and since labels is the same the labels are switched out from the military time
